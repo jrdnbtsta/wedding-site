@@ -31,7 +31,6 @@
 			@include vendor('transition-delay', '#{_duration(intro)}');
 			background-image:		linear-gradient(to bottom, #{_palette(bg-overlay)}, #{_palette(bg-overlay)}),
                   url('../../images/overlay.png');
-      background-image: linear-gradient(to bottom, #{_palette(bg-overlay)}, #{_palette(bg-overlay)}), url('../../images/overlay.png');
 			background-size:		auto,
 									256px 256px;
 			background-position:	center,
@@ -47,7 +46,7 @@
 				'transform #{_duration(article)} ease-in-out',
 				'filter #{_duration(article)} ease-in-out'
 			));
-			background-image:		url('../../images/kauai.jpg');
+			background-image:		url('../../images/napali_coast2.jpg');
 			background-position:	center;
 			background-size:		cover;
 			background-repeat:		no-repeat;
