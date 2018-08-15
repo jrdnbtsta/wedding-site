@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-dimension",
-  "description": "Gatsby Starter - Dimension by HTML5 UP",
+  "name": "wedding-site",
+  "description": "Carey & Jordan's website",
   "version": "1.0.0",
-  "author": "Hunter Chang",
+  "author": "Jordan",
   "dependencies": {
     "gatsby": "^1.9.235",
     "gatsby-link": "^1.6.39",

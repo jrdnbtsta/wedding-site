@@ -1,11 +1,24 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
 
+import Guide from './articles/Guide'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 
 class Main extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.handleScrollToElement = this.handleScrollToElement.bind(this)
+  }
+
+  handleScrollToElement(refName) {
+    const node = ReactDOM.findDOMNode(this.refs[refName]);
+    window.scrollTo(0, node.offsetTop);
+  }
+
   render() {
 
     let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
@@ -20,6 +33,8 @@ class Main extends React.Component {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
           {close}
         </article>
+
+        <Guide article={this.props.article} articleTimeout={this.props.articleTimeout} close={close}/>
 
         <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Work</h2>
