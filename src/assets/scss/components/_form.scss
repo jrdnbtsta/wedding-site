@@ -8,7 +8,7 @@
 
 	form {
 		$gutter: _size(element-margin) * 0.75;
-
+    display: block;
 		margin: 0 0 (_size(element-margin) * 1.25) 0;
 
 		.field {
@@ -17,12 +17,35 @@
 			&.half {
 				width: 50%;
 				float: left;
-				padding: 0 0 0 ($gutter * 1 * 0.5);
+        padding: 0 0 0 ($gutter * 1 * 0.5);
+      }
+        
+      &.quarter {
+        width: 25%;
+        float: left;
+        padding: 0 0 0 ($gutter * 1 * 0.5);
+      }
 
-				&.first {
-					padding: 0 ($gutter * 1 * 0.5) 0 0;
-				}
-			}
+      &.first {
+        padding: 0 ($gutter * 1 * 0.5) 0 0;
+      }
+      
+      > * {
+        vertical-align: bottom;
+      }
+
+      > button {
+        width: 25%;
+        margin: 0 0 0 1rem;
+
+        &:hover {
+          background: _palette(border-bg);
+          border-color: _palette(fg-bold);
+          color: inherit !important;
+          // box-shadow: 0 0 0 _size(border-width) _palette(fg-bold);
+        }
+      }
+
 		}
 
 		> .actions {
@@ -76,7 +99,9 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	input[type="tel"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="radio"],
 	select,
 	textarea {
 		@include vendor('appearance', 'none');
@@ -89,11 +114,25 @@
 		border-radius: _size(border-radius);
 		border: solid _size(border-width) _palette(border);
 		color: inherit;
-		display: block;
+		display: inline-block;
 		outline: 0;
 		padding: 0 1rem;
 		text-decoration: none;
 		width: 100%;
+
+    &.three-quarter {
+      width: calc(75% - 1rem);
+      float: none;
+    }
+
+    &.half {
+      width: 50%;
+      float: none;
+    }
+    &.quarter {
+      width: 25%;
+      float: none;
+    }
 
 		&:invalid {
 			box-shadow: none;
@@ -103,7 +142,7 @@
 			background: _palette(border-bg);
 			border-color: _palette(fg-bold);
 			box-shadow: 0 0 0 _size(border-width) _palette(fg-bold);
-		}
+    }
 	}
 
 	select {
@@ -123,7 +162,7 @@
 			content: '\f107';
 			display: block;
 			height: _size(element-height);
-			//line-height: _size(element-height);
+			// line-height: _size(element-height);
 			line-height: calc(#{_size(element-height)} + 0em);
 			pointer-events: none;
 			position: absolute;
@@ -140,7 +179,8 @@
 
 	input[type="text"],
 	input[type="password"],
-	input[type="email"],
+  input[type="email"],
+  input[type="number"],
 	select {
 		height: _size(element-height);
 	}
@@ -152,7 +192,7 @@
 	input[type="checkbox"],
 	input[type="radio"], {
 		@include vendor('appearance', 'none');
-		display: block;
+		display: inline-block;
 		float: left;
 		margin-right: -2rem;
 		opacity: 0;
@@ -211,7 +251,7 @@
 		}
 	}
 
-	input[type="checkbox"] {
+	[type="checkbox"] {
 		& + label {
 			&:before {
 				border-radius: _size(border-radius);

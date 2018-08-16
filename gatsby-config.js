@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "C & J - 2019",
+    title: "C & J - Kauai 2019",
     author: "Jordan Bautista",
     description: "The website to celebrate Carey & Jordan's Wedding in 2019."
   },
@@ -40,3 +40,4 @@ module.exports = {
     `gatsby-plugin-sass`
   ],
 }
+
