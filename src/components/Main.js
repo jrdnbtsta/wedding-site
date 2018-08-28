@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
+import ScrollToTop from 'react-scroll-up'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 
 import Guide from './articles/Guide'
 import Rsvp from './articles/Rsvp'
@@ -53,6 +57,25 @@ class Main extends React.Component {
           {close}
         </article>
 
+        <ScrollToTop 
+          showUnder={160}
+          style={{
+            position: 'fixed',
+            bottom: 100,
+            right: 50,
+            cursor: 'pointer',
+            transitionDuration: '0.2s',
+            transitionTimingFunction: 'linear',
+            transitionDelay: '0s'
+          }}>
+          <FontAwesomeIcon
+            className='up-arrow'
+            icon={faChevronCircleUp}
+            style={{
+              color: 'rgba(255,255,255,0.175)',
+              fontSize: '30px',
+            }}/>
+        </ScrollToTop>
       </div>
     )
   }
