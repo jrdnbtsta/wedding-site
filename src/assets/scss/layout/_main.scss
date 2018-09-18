@@ -96,10 +96,10 @@
           li {
             border-left: solid _size(border-width) _palette(border-bg-alt);
             text-align: center;
-            padding: 0em;
-            width: 4rem;
+            padding: 0em 1em;
   
             &:first-child {
+              padding: 0em 1em 0em 0em;
               border-left: 0;
             }
   
