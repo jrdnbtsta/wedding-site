@@ -31,10 +31,10 @@ class Guide extends React.Component {
   
         <nav>
           <ul>
-            <li onClick={() => this.changeSelectedTab('north')}>north shore</li>
-            <li onClick={() => this.changeSelectedTab('downtown')}>downtown</li>
-            <li onClick={() => this.changeSelectedTab('east')}>east side</li>
-            <li onClick={() => this.changeSelectedTab('west')}>west side</li>
+            <li onClick={() => this.changeSelectedTab('north')}>North</li>
+            <li onClick={() => this.changeSelectedTab('south')}>South</li>
+            <li onClick={() => this.changeSelectedTab('east')}>East</li>
+            <li onClick={() => this.changeSelectedTab('west')}>West</li>
           </ul>
         </nav>
   
@@ -55,7 +55,7 @@ function setTitle(region) {
       return 'North Shore';
     case 'east':
       return 'East Side';
-    case 'downtown':
+    case 'south':
       return 'Downtown / Lihue';
     default:
       return '';
@@ -84,7 +84,7 @@ function createContent(region) {
         </section>
       );
     
-    case 'downtown':
+    case 'south':
       return (
         <section>
           <h3 ref="south">South</h3>
