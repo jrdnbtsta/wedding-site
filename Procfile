@@ -1,1 +1,1 @@
-web: npm start -- --port ${PORT?}
+web: gunicorn myproject.wsgi && npm start -- --port ${PORT?}
