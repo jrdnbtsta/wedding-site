@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import axios from axios;
+import axios from 'axios';
 import pic01 from '../../images/pic01.jpg'
 
 
@@ -12,13 +12,15 @@ class Rsvp extends React.Component {
     this.onRSVPChanged = this.onRSVPChanged.bind(this)
     this.onAddGuestCountChange = this.onAddGuestCountChange.bind(this)
     this.onGetPartyInputChange = this.onGetPartyInputChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {
       rsvp: '',
       party: [],
+      error: '',
       initialGuest: {
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
       },
     };
@@ -48,21 +50,63 @@ class Rsvp extends React.Component {
     })
   }
 
+  onSubmit(e) {
+    e.preventDefault()
+    this.getParty();
+  }
+
+
+  // APIs
+
+  getParty() {
+    let params = {}
+    const initialGuest = this.state.initialGuest;   
+    for (let input in initialGuest) {
+      if (initialGuest[input].length > 0) {
+        console.log('input: ', initialGuest[input])
+        params[input] = initialGuest[input].trim().toLowerCase();
+      }
+    }
+
+    axios.get(
+      'http://127.0.0.1:8002/api/party/',
+      { params }
+    )
+      .then(res => this.setState({ party: res.data.party }))
+      .catch(err => {
+        let errMessage = err.response.data.message;
+
+        if (errMessage === 'no-guest-found') {
+          let error = 'We were unable to locate a party with the information provided. Please contact Jordan and/or Carey for assistance.'
+          this.setState({ error })
+
+          setTimeout(() => this.setState({ error: '' }), 5000)
+        }
+      })
+  }
+
   render() {
+    let subHeader = "Please enter your first and last name or email address to retreive your party's invitation.";
+    let subHeaderClasses = ''
+
+    if (this.state.error.length) {
+      subHeader = this.state.error;
+      subHeaderClasses += ' error'
+    }
 
     return (
 
       <article id="contact" className={`${this.props.article === 'rsvp' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">RSVP</h2>
-          <p>Please enter your first and last name or email address to retreive your party's invitation.</p>
+          <p className={subHeaderClasses} >{subHeader}</p>
           <form id="get-party-form" method="post" action="#">
             <div className="field half first">
               <label htmlFor="first_name">First Name</label>
-              <input type="text" name="firstName" id="first-name" onChange={this.onGetPartyInputChange}/>
+              <input type="text" name="first_name" id="first-name" onChange={this.onGetPartyInputChange}/>
             </div>
             <div className="field half">
               <label htmlFor="last_name">Last Name</label>
-              <input type="text" name="lastName" id="last-name" onChange={this.onGetPartyInputChange}/>
+              <input type="text" name="last_name" id="last-name" onChange={this.onGetPartyInputChange}/>
             </div>
             <div className="center">- OR -</div>
             <div className="field">
@@ -84,7 +128,7 @@ class Rsvp extends React.Component {
 
             <div className="submit-button-group">
               <button>cancel</button>
-              <button>submit</button>
+              <button className="special" onClick={this.onSubmit}>Submit</button>
             </div>
           </form>
           {this.props.close}
