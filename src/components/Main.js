@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 
 import Guide from './articles/Guide'
-import Planning from './articles/Planning'
+import Accommodations from './articles/Accommodations'
 import Rsvp from './articles/Rsvp'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
@@ -42,7 +42,7 @@ class Main extends React.Component {
 
         <Guide article={this.props.article} articleTimeout={this.props.articleTimeout} close={close}/>
         <Rsvp article={this.props.article} articleTimeout={this.props.articleTimeout} close={close}/>
-        <Planning article={this.props.article} articleTimeout={this.props.articleTimeout} close={close}/>
+        <Accommodations article={this.props.article} articleTimeout={this.props.articleTimeout} close={close}/>
 
         <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Work</h2>

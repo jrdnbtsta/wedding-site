@@ -4,7 +4,7 @@ import pic01 from '../../images/pic01.jpg'
 import wailua from '../../images/wailua_falls.jpg'
 import hanalei from '../../images/hanalei.jpg'
 
-class Planning extends React.Component {
+class Accommodations extends React.Component {
   constructor(props) {
     super(props)
 
@@ -13,65 +13,68 @@ class Planning extends React.Component {
     }
   }
 
-  changeSelectedTab(tab) {
-    this.setState({currentTab: tab});
+  
+  handleScrollToElement(refName) {
+    const node = ReactDOM.findDOMNode(this.refs[refName]);
+    window.scrollTo(0, node.offsetTop);
   }
 
   render() {
     return (
 
-      <article id="planning" className={`${this.props.article === 'planning' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-        <h2 className="major">Planning Your Trip</h2>
+      <article id="accommodations" className={`${this.props.article === 'accommodations' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
         <span className="image main">
           <h1 id="title">
-            Travel & Accomendations
+            Travel & Accommodations
           </h1>
           {createImage(this.state.currentTab)}
         </span>
   
         <nav>
           <ul>
-            <li onClick={() => this.changeSelectedTab('travel')}>Flights</li>
-            <li onClick={() => this.changeSelectedTab('rentals')}>Rentals</li>
-            <li onClick={() => this.changeSelectedTab('accomendations')}>Hotels</li>
+            <li onClick={() => this.handleScrollToElement('travel')}>Flights</li>
+            <li onClick={() => this.handleScrollToElement('rentals')}>Rentals</li>
+            <li onClick={() => this.handleScrollToElement('hotels')}>Hotels</li>
           </ul>
         </nav>
   
         <p>We are honored that you are able to join us on our special day. Below you will find suggestions on where to book your travel and hotel accomendations.</p>
         
         <section>
-          <h3 ref="travel">Flights To LIH</h3>
+          <h2 ref="travel" className="center sub-header">Flights To Lihue [LIH] </h2>
+          <img id="airport-img" className="sub-img" src="http://1.bp.blogspot.com/-ehKZ2OkCmy4/VJnoj_mxnhI/AAAAAAAAJdU/0y3IlFcmxfs/s1600/KAUAI%2BONE%2B-%2B008.jpg"></img>
           <p>
           Direct flights are fairly common with Alaskan, Hawaiian, Delta and soon Southwest. Prices tend to drop closer to September; we suggest booking your flight 1-2 months prior to our wedding.
           </p>
-          <p>
-          We recommend signing up for airfare alerts through the following services to track travel rates:
-          <div>
-            <button>Hopper</button>
-            <button>Skyscanner</button>
-            <button>Kayak</button>
-            <button>Google Flights</button>
-          </div>
-          </p>
           <p><b>From LAX:</b> Roundtrip nonstop flights from LAX to LIH typically run for $350 to $450<br/>
           <b>From SFO/OAK:</b> Roundtrip nonstop flights from LAX to LIH typically run for $300 to $400</p>
+          <p>
+          We recommend signing up for airfare alerts through the following services to track travel rates:
+          <div className="center">
+            <button className="small-btn">Hopper</button>
+            <button className="small-btn">Skyscanner</button>
+            <button className="small-btn">Kayak</button>
+            <button className="small-btn">Google Flights</button>
+          </div>
+          </p>
         </section>
 
         <section>
-          <h3 ref="rentals">Car Rentals</h3>
+          <h2 ref="rentals" className="center sub-header">Car Rentals</h2>
           <p>
             <b>Uber and Lyft drivers are not common in Kauai.</b> </p>
             <p>That being said, the most efficient means of travel around the island will be via car rental. We typically book our car rentals through Costco for $40 / day.</p>
           <p>
-          Car rental reservations:
-          <div>
-            <button>Costco Travel</button>
+          <div className="center">
+            <button className="small-btn">Costco Travel</button>
           </div>
           </p>
         </section>
 
         <section>
-          <h3 ref="rentals">Hotels</h3>
+          <h2 ref="hotels" className="center sub-header">Hotels</h2>
+          <img id="marriott-img" className="sub-img" src="https://images.myguide-cdn.com/hawaii/companies/courtyard-by-marriott-kauai-at-coconut-beach/large/courtyard-by-marriott-kauai-at-coconut-beach-274876.jpg"></img>
+
           <h4>Room Block</h4>
           <p>
             We highly recommend taking advantage of our group rate available at the Courtyard by Marriott Kaua'i at Coconut Beach. We've stayed here a few times and have never been disappointed.
@@ -79,12 +82,11 @@ class Planning extends React.Component {
           </p> 
           <p><b>Pricing:</b> We have room block rates ranging from $100 to $150 per night. This rate is valid during the week before and after the wedding in case you would like to extend your vacation in Kauai.<br/>
           <b>Booking:</b> This rate expires TODO [SOME_DATE] <br/>
-          <b>Amentities: </b> 
+          <b>Amentities: </b> TODO Shewing met parties gravity husband sex pleased. On to no kind do next feel held walk. Last own loud and knew give gay four. Sentiments motionless or principles preference excellence am. Literature surrounded insensible at indulgence or to admiration remarkably. Matter future lovers desire marked boy use. Chamber reached do he nothing be. 
           </p>
           <p>
-          Car rental reservations:
-          <div>
-            <button>Costco Travel</button>
+          <div className="center">
+            <button className="small-btn">Join Our Room Block</button>
           </div>
           </p>
           <h4>Other Great Hotels</h4>
@@ -110,4 +112,4 @@ function createImage(region) {
   }
 }
 
-export default Planning;
+export default Accommodations;
