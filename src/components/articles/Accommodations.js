@@ -50,13 +50,13 @@ class Accommodations extends React.Component {
           <b>From SFO/OAK:</b> Roundtrip nonstop flights from LAX to LIH typically run for $300 to $400</p>
           <p>
           We recommend signing up for airfare alerts through the following services to track travel rates:
-          <div className="center">
-            <button className="small-btn">Hopper</button>
-            <button className="small-btn">Skyscanner</button>
-            <button className="small-btn">Kayak</button>
-            <button className="small-btn">Google Flights</button>
-          </div>
           </p>
+          <div className="center small-btn-container">
+            <a href="https://www.hopper.com/" target="_blank"><button className="small-btn">Hopper</button></a>
+            <a href="https://www.skyscanner.com/transport/flights/lax/lih/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&oym=1909&iym=1909&ref=home&selectedoday=01&selectediday=01" target="_blank"><button className="small-btn">Skyscanner</button></a>
+            <a href="https://www.kayak.com/flights/LAX-LIH/2019-09-25/2019-10-25-flexible-calendar-5to6?sort=bestflight_a" target="_blank"><button className="small-btn">Kayak</button></a>
+            <a href="https://www.google.com/flights?hl=en#flt=/m/030qb3t.LIH.2019-09-25*LIH./m/030qb3t.2019-09-30;c:USD;e:1;sd:1;t:f" target="_blank"><button className="small-btn">Google Flights</button></a>
+          </div>
         </section>
 
         <section>
@@ -66,7 +66,7 @@ class Accommodations extends React.Component {
             <p>That being said, the most efficient means of travel around the island will be via car rental. We typically book our car rentals through Costco for $40 / day.</p>
           <p>
           <div className="center">
-            <button className="small-btn">Costco Travel</button>
+            <a href="https://www.costcotravel.com/h=4005" target="_blank"><button className="small-btn">Costco Travel</button></a>
           </div>
           </p>
         </section>
