@@ -22,7 +22,7 @@ class Wedding extends React.Component {
   render() {
     return (
 
-      <article id="Wedding" className={`${this.props.article === 'wedding' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+      <article id="wedding" className={`${this.props.article === 'wedding' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
         <span className="image main">
           <h1 id="title">
             The Wedding
