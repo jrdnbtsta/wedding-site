@@ -65,10 +65,10 @@ class Accommodations extends React.Component {
             <b>Uber and Lyft drivers are not common in Kauai.</b> </p>
             <p>That being said, the most efficient means of travel around the island will be via car rental. We typically book our car rentals through Costco for $40 / day.</p>
           <p>
+          </p>
           <div className="center">
             <a href="https://www.costcotravel.com/h=4005" target="_blank"><button className="small-btn">Costco Travel</button></a>
           </div>
-          </p>
         </section>
 
         <section>
@@ -84,11 +84,9 @@ class Accommodations extends React.Component {
           <b>Booking:</b> This rate expires TODO [SOME_DATE] <br/>
           <b>Amentities: </b> TODO Shewing met parties gravity husband sex pleased. On to no kind do next feel held walk. Last own loud and knew give gay four. Sentiments motionless or principles preference excellence am. Literature surrounded insensible at indulgence or to admiration remarkably. Matter future lovers desire marked boy use. Chamber reached do he nothing be. 
           </p>
-          <p>
           <div className="center">
             <button className="small-btn">Join Our Room Block</button>
           </div>
-          </p>
           <h4>Other Great Hotels</h4>
         </section>
 
